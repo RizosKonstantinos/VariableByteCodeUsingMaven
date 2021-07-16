@@ -1,4 +1,4 @@
-package org.exampe.VariableByteCodeUsingMaven;
+package org.example.VariableByteCodeUsingMaven;
 
 import javax.swing.*;
 import java.util.ArrayList;
