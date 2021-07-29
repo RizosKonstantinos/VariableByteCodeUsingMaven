@@ -4,8 +4,8 @@ import javax.swing.*;
 import java.util.ArrayList;
 
 public class VariableByteCode {
-
-    static final int block = 8;
+    
+    private static final int BLOCK = 8;
 
     public static void main(String[] args) {
 
@@ -87,7 +87,7 @@ public class VariableByteCode {
 
     public static void computeResult(StringBuilder inputBinary, StringBuilder inputBinaryReverse, ArrayList<StringBuilder> bytes ){
         int index = 0;
-        double numOfBytes = (int)Math.ceil((double)inputBinary.length()/(block - 1)); // Calculates how many bytes will be needed
+        double numOfBytes = (int)Math.ceil((double)inputBinary.length()/(BLOCK - 1)); // Calculates how many bytes will be needed
         int remainder = inputBinaryReverse.length(); // This variable is used to calculate how many bits are left for the process to end
         boolean isTheFirstByte = true;
 
@@ -95,7 +95,7 @@ public class VariableByteCode {
         for(int i=0; i<numOfBytes; i++){
             // if only 1 byte is needed
             if(numOfBytes == 1){
-                bytes.add(vbCodeForOneByte(inputBinary, block, inputBinaryReverse));
+                bytes.add(vbCodeForOneByte(inputBinary, BLOCK, inputBinaryReverse));
             }
             else{
 
@@ -156,7 +156,7 @@ public class VariableByteCode {
     // Method for processing the last byte of the input
     public static StringBuilder vbCodeForTheLastByte(StringBuilder inputBinaryReverse, int index, int remainder) {
         StringBuilder subString = stringAppend(inputBinaryReverse, index, remainder);
-        int diff = block - subString.length();
+        int diff = BLOCK - subString.length();
         for(int i=0; i<diff; i++){
             subString.append(0);
         }
