@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class VariableByteCode {
     
     private static final int BLOCK = 8;
-
+    
     public static void main(String[] args) {
 
         while(true) {
